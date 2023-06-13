@@ -6,7 +6,7 @@ import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlin
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
-import { DarkModeContext } from "../../context/darkModeContext";
+import { DarkModeContext } from "../../context/darkModeContext.js";
 import { useContext } from "react";
 
 const Navbar = () => {
@@ -46,7 +46,7 @@ const Navbar = () => {
           </div>
           <div className="item">
             <img
-              src="https://images.pexels.com/photos/941693/pexels-photo-941693.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              src="https://media.licdn.com/dms/image/D4D03AQFP-sHF2UI-7g/profile-displayphoto-shrink_400_400/0/1664954278284?e=1692230400&v=beta&t=9x0CNHRly6RmG9oDjRNTnYGfxYx-jyYzEck4W7kbulE"
               alt=""
               className="avatar"
             />
