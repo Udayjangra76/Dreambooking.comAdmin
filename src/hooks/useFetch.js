@@ -8,6 +8,8 @@ const useFetch = (url) => {
     let [loading, setLoading] = useState(false);
     let [error, setError] = useState(false);
 
+   useEffect(() => {
+        
     const fetchData = async () => {
         setLoading(true);
         const newRequest = axios.create({
@@ -20,11 +22,9 @@ const useFetch = (url) => {
             setError(err);
         });
         setLoading(false);
-    }
-
-    useEffect(() => {
+      }
         fetchData();
-    }, [url])
+    },[url])
 
     const reFetch = async () => {
         setLoading = true;
