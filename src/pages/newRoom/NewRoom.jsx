@@ -5,6 +5,7 @@ import { useState } from "react";
 import { roomInputs } from "../../formSource.js";
 import useFetch from "../../hooks/useFetch.js";
 import axios from "axios";
+import { BASE_URL } from "../../helper.js";
 
 
 const NewRoom = () => {
@@ -22,7 +23,11 @@ const NewRoom = () => {
         e.preventDefault();
         const roomNumbers = rooms.split(",").map((room) => ({ number: room }));
         try {
-            await axios.post(`/rooms/${hotelId}`, { ...info, roomNumbers });
+            const newRequest = axios.create({
+              baseURL: `${BASE_URL}/api/`,
+              withCredentials: true,
+            });
+      await newRequest.post(`/rooms/${hotelId}`, { ...info, roomNumbers });
         } catch (err) {
             console.log(err);
         }
