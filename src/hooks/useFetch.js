@@ -10,7 +10,7 @@ const useFetch = (url) => {
 
    useEffect(() => {
         
-    const fetchData = async () => {
+  const fetchData = async () => {
         setLoading(true);
         const newRequest = axios.create({
             baseURL: `${BASE_URL}/api/`,
@@ -22,9 +22,12 @@ const useFetch = (url) => {
             setError(err);
         });
         setLoading(false);
-      }
+    }
+
+    useEffect(() => {
         fetchData();
-    },[url])
+        // eslint-disable-next-line
+    }, [])
 
     const reFetch = async () => {
         setLoading = true;
