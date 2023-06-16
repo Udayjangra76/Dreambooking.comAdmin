@@ -10,24 +10,22 @@ const useFetch = (url) => {
 
    useEffect(() => {
         
-  const fetchData = async () => {
-        setLoading(true);
-        const newRequest = axios.create({
-            baseURL: `${BASE_URL}/api/`,
-            withCredentials: true,
-        });
-        newRequest.get(url).then(response => {
-            setData(response.data);
-        }).catch(err => {
-            setError(err);
-        });
-        setLoading(false);
-    }
-
-    useEffect(() => {
+  useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            const newRequest = axios.create({
+                baseURL: `${BASE_URL}/api/`,
+                withCredentials: true,
+            });
+            newRequest.get(url).then(response => {
+                setData(response.data);
+            }).catch(err => {
+                setError(err);
+            });
+            setLoading(false);
+        }
         fetchData();
-        // eslint-disable-next-line
-    }, [])
+    }, [url])
 
     const reFetch = async () => {
         setLoading = true;
