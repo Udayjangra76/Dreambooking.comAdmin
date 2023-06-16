@@ -6,6 +6,7 @@ import { useState } from "react";
 import { hotelInputs } from "../../formSource.js";
 import useFetch from "../../hooks/useFetch.js";
 import axios from "axios";
+import { BASE_URL } from "../../helper.js";
 
 const NewHotel = () => {
     const [files, setFiles] = useState("");
@@ -52,7 +53,11 @@ const NewHotel = () => {
                 photos: list,
             };
 
-            await axios.post("/hotels", newhotel);
+            const newRequest = axios.create({
+            baseURL: `${BASE_URL}/api/`,
+            withCredentials: true,
+            });
+          await newRequest.post("/hotels", newhotel);
         } catch (err) { console.log(err) }
     };
     return (
